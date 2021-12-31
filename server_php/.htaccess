@@ -1,0 +1,12 @@
+# Запускаем движок замены
+RewriteEngine On
+# если запрашиваемый объект - файл
+RewriteCond %{REQUEST_FILENAME} !-f
+# Все запросы переводятся на index.php и передаются в GET-параметры
+RewriteRule ^(.+)$ index.php?q=$1 [L,QSA] 
+# # Если запрашиваемый объект не папка
+# RewriteCond %{REQUEST_FILENAME} !-d
+# # если запрашиваемый объект с дописанным расширением php - файл
+# RewriteCond %{REQUEST_FILENAME}\.php -f
+# # делаем замену с дописыванием .php
+# RewriteRule ^(.*)$ $1.php
